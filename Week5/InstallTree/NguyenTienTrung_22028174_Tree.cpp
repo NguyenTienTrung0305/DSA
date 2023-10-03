@@ -47,11 +47,11 @@ public:
         while(sibling != nullptr){
             result = findNode(sibling->firstChild , data);
             if (result != nullptr){
-                return node;
+                return result;
             }
             result = findNode(sibling->nextSibling , data);
             if (result != nullptr){
-                return node;
+                return result;
             }
         }
         return result;
@@ -90,18 +90,12 @@ public:
 
     // number child of paren , end delete node
     int totalNodeWasDelete(Node* parent){
-        int result;
         if (parent == nullptr){
             return 0;
         }
-        Node* fchild = parent->firstChild;
-        // if (fchild == nullptr){
-        //     return 1;
-        // }
-        result = 1 + totalNodeWasDelete(fchild);
-        while (fchild->nextSibling != nullptr){
-            result = result + totalNodeWasDelete(fchild->nextSibling);
-        }
+        int result;
+        result = 1 + totalNodeWasDelete(parent->firstChild);
+        result = result + totalNodeWasDelete(parent->nextSibling);
         delete parent;
         return result;
     }
@@ -112,7 +106,9 @@ public:
     // Nếu Node data không tồn tại trả về 0 (zero)
     int remove(int data){
         Node* node = findNode(root , data);
-        int result = totalNodeWasDelete(node);
+        int result = totalNodeWasDelete(node->firstChild);
+        node->fatherNode->firstChild = node->nextSibling;
+        delete node;
         return result;
     };
 
@@ -300,8 +296,18 @@ public:
         return maxEle;
     };
 
+    // totalchild
+    int totalChild(Node* currentNode){
+        if (currentNode == nullptr){
+            return 0;
+        }
+        return 1 + totalChild(currentNode->firstChild) + totalChild(currentNode->nextSibling);
+    }
+
     // Hàm trả về Node có nhiều con nhất
-    int findMaxChild();
+    int findMaxChild(){
+        return totalChild(root->firstChild);
+    };
 };
 
 int main(int argc, char const *argv[]) {
@@ -340,6 +346,19 @@ int main(int argc, char const *argv[]) {
 
     tree.root = node1;
     cout << tree.findMax(tree.root , 0);
+    cout << endl;
+
+    // tree.remove(10);
+    tree.preorder(tree.root);
+    cout << endl;
+    cout << tree.findNode(tree.root , 6)->data;
+    cout << endl;
+    cout << tree.remove(6);
+    cout << endl;
+    tree.preorder(tree.root);
+    cout << endl;
+
+    cout << tree.findMaxChild();
 
     return 0;
 }
