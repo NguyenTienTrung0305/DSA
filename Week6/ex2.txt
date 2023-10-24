@@ -1,0 +1,38 @@
+Draw the 11-entry hash that results from using the hash function h(i) = (2i+5) mod
+11 to hash keys 12, 44, 13, 88, 23, 94, 11, 39, 20, 16, 5.
+
+a. chaining
+    + create table with 11 entries
+    + h(12) = (2*12+5) mod 11 = 7
+    + h(44) = (2*44+5) mod 11 = 5
+    ...
+
+Index   |      keys
+
+0               
+1               20
+2               
+3           
+4               16 -> 5
+5               44 -> 88 -> 11
+6               94 -> 39
+7               12 -> 23
+8
+9               13
+10
+
+
+b. linear probing
+
+Index   keys
+0       11
+1       39
+2       20
+3       5
+4       16
+5       44
+6       88 => (2*88+5) mod 11 = 5 , but hash keys in index 5 have element , so we check next index , if next index is empty , we fill it.
+7       12
+8       23
+9       13
+10      94

@@ -1,0 +1,4 @@
+Two desirable properties of a hash function are:
+1. Collision Resistance: A hash function should be collision-resistant, meaning that it should be computationally infeasible to find two different inputs that 
+produce the same hash value
+2. Deterministic Output: A hash function should always produce the same hash value for a given input.
