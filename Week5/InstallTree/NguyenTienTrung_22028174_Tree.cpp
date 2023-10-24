@@ -155,6 +155,8 @@ public:
                 if (totalSibling > 2){
                     return false;
                 }
+            }else{
+                return false;
             }
             child = child->nextSibling;
         }
@@ -171,11 +173,14 @@ public:
         }
         bool result;
         // neu parent khong con con nua => luon dung
+        if (root == nullptr){
+            return true;
+        }
         if (root->firstChild == nullptr){
             return true;
         }
         // neu parent van con con
-        while (root->firstChild != nullptr){
+        if (root->firstChild != nullptr){
             // neu parent chi co 1 con => luon dung
             if (root->firstChild->nextSibling == nullptr){
                 return true;
@@ -318,47 +323,63 @@ int main(int argc, char const *argv[]) {
     
     // Tạo ra một cây thoả mãn tính chất là Max Heap Tree và test lại
     Tree tree;
-    Node* node1 = new Node(3);
-    Node* node2 = new Node(6);
-    Node* node3 = new Node(7);
-    Node* node4 = new Node(5);
-    Node* node5 = new Node(2);
-    Node* node6 = new Node(10);
-    Node* node7 = new Node(9);
-    Node* node8 = new Node(1);
+    // Node* node1 = new Node(3);
+    // Node* node2 = new Node(6);
+    // Node* node3 = new Node(7);
+    // Node* node4 = new Node(5);
+    // Node* node5 = new Node(2);
+    // Node* node6 = new Node(10);
+    // Node* node7 = new Node(9);
+    // Node* node8 = new Node(1);
+
+    // node1->firstChild = node2;
+    // node2->fatherNode = node1;
+    // node2->nextSibling = node3;
+    // node3->nextSibling = node4;
+    // node3->fatherNode = node1;
+    // node4->fatherNode = node1;
+
+    // node2->firstChild = node5;
+    // node5->fatherNode = node2;
+    // node5->nextSibling = node6;
+    // node6->fatherNode = node2;
+
+    // node3->firstChild = node7;
+    // node7->fatherNode = node3;
+    // node7->nextSibling = node8;
+    // node8->fatherNode = node3;
+
+    Node* node1 = new Node(10);
+    Node* node2 = new Node(7);
+    Node* node3 = new Node(12);
+    Node* node4 = new Node(4);
+    Node* node5 = new Node(8);
 
     node1->firstChild = node2;
     node2->fatherNode = node1;
     node2->nextSibling = node3;
-    node3->nextSibling = node4;
     node3->fatherNode = node1;
-    node4->fatherNode = node1;
-
-    node2->firstChild = node5;
-    node5->fatherNode = node2;
-    node5->nextSibling = node6;
-    node6->fatherNode = node2;
-
-    node3->firstChild = node7;
-    node7->fatherNode = node3;
-    node7->nextSibling = node8;
-    node8->fatherNode = node3;
+    node2->firstChild = node4;
+    node4->fatherNode = node2;
+    // node4->nextSibling = node5;
+    // node5->fatherNode = node2;
 
     tree.root = node1;
-    cout << tree.findMax(tree.root , 0);
-    cout << endl;
+    cout << tree.isBinarySearchTree(tree.root) << endl;
+    // cout << tree.findMax(tree.root , 0);
+    // cout << endl;
 
-    // tree.remove(10);
-    tree.preorder(tree.root);
-    cout << endl;
-    cout << tree.findNode(tree.root , 6)->data;
-    cout << endl;
-    cout << tree.remove(6);
-    cout << endl;
-    tree.preorder(tree.root);
-    cout << endl;
+    // // tree.remove(10);
+    // tree.preorder(tree.root);
+    // cout << endl;
+    // cout << tree.findNode(tree.root , 6)->data;
+    // cout << endl;
+    // cout << tree.remove(6);
+    // cout << endl;
+    // tree.preorder(tree.root);
+    // cout << endl;
 
-    cout << tree.findMaxChild();
+    // cout << tree.findMaxChild();
 
     return 0;
 }
