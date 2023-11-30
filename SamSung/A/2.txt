@@ -1,0 +1,1 @@
+Số đồ thị vô hướng có V đỉnh E cạnh là : (E+1)*(E)/2 * C(V,V-E-1)

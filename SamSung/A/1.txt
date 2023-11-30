@@ -1,0 +1,4 @@
+Đồ thị 1: Không có chu trình euler và halminton
+Đồ thị 2: Không có chu trình euler và halminton
+Đồ thị 3: Không có chu trình euler nhưng có chi trình halminton
+Đồ thị 3: Không có chu trình euler nhưng có chi trình halminton

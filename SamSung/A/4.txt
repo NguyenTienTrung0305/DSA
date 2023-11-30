@@ -1,0 +1,3 @@
+Để đồ thị là đồ thị 2 màu => màu ở các vị trí liên tiếp là khác nhau , và màu ở vị trí i-2,  i và i + 2 là giống nhau 
+Giả sử đồ thị G chứa 1 chu trình có độ dài lẻ => số đỉnh là lẻ => tồn tại vị trí liên tiếp mà màu của 2 đỉnh giống nhau
+=> không thỏa mãn

@@ -1,0 +1,7 @@
+Giả sử đồ thị G không phải là đồ thị biconnected, có ít nhất một điểm articulation là đỉnh u. Điều này có nghĩa là nếu ta loại bỏ đỉnh u và các cạnh kề của nó, 
+đồ thị G sẽ không còn liên thông.
+Giả sử ta có hai đỉnh s và t trong G và có một đường đi nối giữa chúng. Vì G không phải là đồ thị biconnected, nếu ta loại bỏ đỉnh u và các cạnh kề của nó, đồ thị 
+G sẽ mất tính liên thông, nghĩa là không còn đường đi nối giữa s và t.
+Tuy nhiên, điều này mâu thuẫn với giả thiết ban đầu rằng có một đường đi nối giữa s và t trong G. Điều này chỉ ra rằng giả định đồ thị không phải là đồ thị 
+biconnected dẫn đến mâu thuẫn.
+Do đó, ta có kết luận rằng một đồ thị bất kỳ mà không có điểm articulation là đồ thị biconnected.
